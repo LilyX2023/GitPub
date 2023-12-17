@@ -16,6 +16,13 @@ app.get('/drinks', (req, res) => {
   res.render("index.ejs",{drinks});
 });
 
+// new route for the specific drink
+app.get('/drinks/:id',(req, res) => {
+    const id = req.params.id
+    const drink = drinks[id]
+    res.send(drink)
+})
+
 // Start the server and listen on port 3000
 app.listen(3000, () => {
   console.log('Express server is running on port 3000');
